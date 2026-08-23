@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "可汗双语字幕",
+  "version": "0.1.0",
+  "description": "在可汗学院视频上显示由 Chrome 本地模型翻译的双语字幕。",
+  "minimum_chrome_version": "138",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://khanacademy.org/*",
+        "https://*.khanacademy.org/*"
+      ],
+      "js": [
+        "khan.js"
+      ],
+      "css": [
+        "khan.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/embed/*",
+        "https://www.youtube-nocookie.com/embed/*"
+      ],
+      "js": [
+        "youtube-captions.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ]
+}

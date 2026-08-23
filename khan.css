@@ -1,0 +1,203 @@
+.kst-launcher,
+.kst-panel,
+.kst-overlay {
+  box-sizing: border-box;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+.kst-launcher {
+  position: fixed;
+  z-index: 2147483647;
+  right: 20px;
+  top: 42%;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  background: #172b4d;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(23, 43, 77, 0.28);
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 750;
+  line-height: 1;
+  transition:
+    transform 140ms ease,
+    background 140ms ease;
+}
+
+.kst-launcher:hover {
+  transform: translateY(-2px);
+}
+
+.kst-launcher:focus-visible {
+  outline: 3px solid #75d5ff;
+  outline-offset: 3px;
+}
+
+.kst-launcher--enabled {
+  background: #1865f2;
+  font-size: 14px;
+}
+
+.kst-panel {
+  position: fixed;
+  z-index: 2147483647;
+  right: 78px;
+  top: calc(42% - 78px);
+  width: min(320px, calc(100vw - 104px));
+  padding: 18px;
+  border: 1px solid #d8e1ea;
+  border-radius: 18px;
+  background: #fff;
+  color: #172b4d;
+  box-shadow: 0 18px 54px rgba(23, 43, 77, 0.22);
+  font-size: 14px;
+}
+
+.kst-panel[hidden],
+.kst-overlay[hidden],
+.kst-caption[hidden] {
+  display: none !important;
+}
+
+.kst-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.kst-panel__title {
+  font-size: 17px;
+}
+
+.kst-local-badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e7f8ee;
+  color: #087a3e;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.kst-row,
+.kst-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 42px;
+  border-top: 1px solid #edf1f5;
+}
+
+.kst-row--switch input {
+  width: 19px;
+  height: 19px;
+  accent-color: #1865f2;
+}
+
+.kst-field select {
+  max-width: 142px;
+  padding: 6px 28px 6px 8px;
+  border: 1px solid #b9c7d5;
+  border-radius: 8px;
+  background: #fff;
+  color: #172b4d;
+}
+
+.kst-status {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f3f6f8;
+  color: #334e68;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.kst-status[data-kind="success"] {
+  background: #e7f8ee;
+  color: #087a3e;
+}
+
+.kst-status[data-kind="error"] {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+.kst-status[data-kind="progress"] {
+  background: #eef4ff;
+  color: #174ea6;
+}
+
+.kst-privacy {
+  margin: 10px 0 0;
+  color: #6b7c8f;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.kst-overlay {
+  position: fixed;
+  z-index: 2147483646;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+  transition: opacity 120ms ease;
+}
+
+.kst-overlay--outside {
+  opacity: 0;
+}
+
+.kst-caption {
+  max-width: 94%;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: rgba(8, 14, 25, 0.82);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: #fff;
+  font-size: clamp(16px, 2.1vw, 25px);
+  font-weight: 650;
+  line-height: 1.35;
+  text-shadow: 0 1px 2px #000;
+}
+
+.kst-caption--translated {
+  color: #ffe66d;
+}
+
+@media (max-width: 640px) {
+  .kst-launcher {
+    right: 12px;
+    top: auto;
+    bottom: 90px;
+  }
+
+  .kst-panel {
+    right: 12px;
+    top: auto;
+    bottom: 146px;
+    width: min(320px, calc(100vw - 24px));
+  }
+
+  .kst-caption {
+    font-size: clamp(14px, 4vw, 19px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kst-launcher,
+  .kst-overlay {
+    transition: none;
+  }
+}
